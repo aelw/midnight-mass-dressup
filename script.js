@@ -85,8 +85,8 @@ function preload () {
 		clothingCatSelect.appendChild(btn);
 	});
 
-	this.load.image('char-b', `assets/images/char-b.png`);
-	this.load.image('char-c', `assets/images/char-c.png`);
+	this.load.image('char-b', `./assets/images/char-b.png`);
+	this.load.image('char-c', `./assets/images/char-c.png`);
 }
 
 
@@ -158,7 +158,7 @@ function loadClothing (item, key) {
 	if ( (key === 'tops' || key === 'dresses') && clothing['jackets'].equipped.texture.key !== '__MISSING') itemKey = `${item}-${colorMode}-cut`;
 
 	if ( !scene.textures.exists(itemKey) ) {
-		scene.load.image(itemKey, `/assets/images/${itemKey}.png`);
+		scene.load.image(itemKey, `./assets/images/${itemKey}.png`);
 		scene.load.on('complete', () => {
 			if ( !clothing[key].equipped.visible ) clothing[key].equipped.setVisible(true);
 			clothing[key].equipped.setTexture(itemKey);
