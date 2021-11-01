@@ -219,18 +219,18 @@ function loadClothing (item, key) {
 
 function deleteClothing (key) {
 	if ( clothing[key].equipped ) {
-		if ( key === 'jackets' && (clothing['tops'].equipped.texture.key !== '__MISSING' || clothing['dresses'].equipped.texture.key !== '__MISSING' )) {
-			if ( clothing['tops'].equipped.visibele ) {
-				let topsKey = clothing['tops'].equipped.texture.key;
-				clothing['tops'].equipped.setTexture(topsKey.substring(0, topsKey.length-4));
-			}
-			if ( clothing['dresses'].equipped.visibele ) {
-				let dressesKey = clothing['dresses'].equipped.texture.key;
-				clothing['dresses'].equipped.setTexture(dressesKey.substring(0, dressesKey.length-4));
-			}
-		}
 		clothing[key].equipped.setTexture('');
 		clothing[key].equipped.setVisible(false);
+		if ( key === 'jackets' && (clothing['tops'].equipped.texture.key !== '__MISSING' || clothing['dresses'].equipped.texture.key !== '__MISSING' )) {
+			if ( clothing['tops'].equipped.visible ) {
+				let topsKey = clothing['tops'].equipped.texture.key;
+				loadClothing(topsKey.substring(0, topsKey.length-6), 'tops');
+			}
+			if ( clothing['dresses'].equipped.visible ) {
+				let dressesKey = clothing['dresses'].equipped.texture.key;
+				loadClothing(dressesKey.substring(0, dressesKey.length-6), 'dresses');
+			}
+		}
 	} 
 }
 
