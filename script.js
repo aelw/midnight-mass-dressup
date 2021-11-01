@@ -187,11 +187,11 @@ function addClothing (event) {
 }
 
 function checkForCroppedItems (key) {
-	if ( key === 'jackets' && (clothing['tops'].equipped.texture.key !== '__MISSING' || clothing['dresses'].equipped.texture.key !== '__MISSING')) {
+	if ( key === 'jackets' ) {
 		let dressTexture = clothing['dresses'].equipped.texture.key;
 		let topsTexture = clothing['tops'].equipped.texture.key;
 		if ( dressTexture  !== '__MISSING' && !dressTexture.match(/-cut/g) ) loadClothing(`${dressTexture.split('-')[0]}-${dressTexture.split('-')[1]}`, 'dresses');
-		if ( topsTexture  !== '__MISSING' &&  !topsTexture.match(/-cut/g) ) loadClothing(`${topsTexture.split('-')[0]}-${topsTexture.split('-')[1]}`, 'tops');
+		if ( topsTexture  !== '__MISSING' && !topsTexture.match(/-cut/g) ) loadClothing(`${topsTexture.split('-')[0]}-${topsTexture.split('-')[1]}`, 'tops');
 	}
 }
 
@@ -203,17 +203,17 @@ function loadClothing (item, key) {
 
 	if ( !scene.textures.exists(itemKey) ) {
 		scene.load.image(itemKey, `./assets/images/${itemKey}.png`);
+		if ( itemKey.match(/^tops|dresses-[0-9]+-(c|b)$/) ) scene.load.image(itemKey, `./assets/images/${itemKey}-cut.png`);
 		scene.load.on('complete', () => {
 			if ( !clothing[key].equipped.visible ) clothing[key].equipped.setVisible(true);
 			clothing[key].equipped.setTexture(itemKey);
-			checkForCroppedItems(key);
 			scene.load.removeAllListeners(['complete']);
+			checkForCroppedItems(key);
 		}, this);
 		scene.load.start();
 	} else {
 		if ( !clothing[key].equipped.visible ) clothing[key].equipped.setVisible(true);
 		clothing[key].equipped.setTexture(itemKey);
-		checkForCroppedItems(key);
 	}
 }
 
