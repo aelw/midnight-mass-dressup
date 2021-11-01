@@ -72,11 +72,19 @@ let clothing = {
 	}, 
 };
 
+const openInfo = (event) => {
+	event.stopPropagation();
+	if ( event.target.id === 'info-popup') {
+		const msgbox = document.getElementById('info-popup');
+		msgbox.classList.toggle('closed');
+	}
+};
+
 (function(window, document, undefined){
 
 	window.onload = init;
 	
-	  function init(){
+	function init(){
 		const catSelectContainer = document.getElementById('ui-clothing-cat-select');
 		const clothingSelectContainer = document.getElementById('ui-clothing-select');
 		catSelectContainer.addEventListener('wheel', (event) => {
@@ -88,7 +96,20 @@ let clothing = {
 			event.preventDefault();
 			clothingSelectContainer.scrollLeft += event.deltaY;
 		});
-	  }
+
+		document.getElementById('info-btn').addEventListener('click', (event) => {
+			event.stopPropagation();
+			const msgbox = document.getElementById('info-popup');
+			msgbox.classList.toggle('closed');
+		});
+		document.getElementById('info-popup').addEventListener('click', (event) => {
+			event.stopPropagation();
+			if ( event.target.id === 'info-popup') {
+				const msgbox = document.getElementById('info-popup');
+				msgbox.classList.toggle('closed');
+			}
+		});
+	}
 	
 })(window, document, undefined);
 

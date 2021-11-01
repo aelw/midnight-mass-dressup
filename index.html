@@ -7,12 +7,36 @@
         body {
             background-color: #495e5e;
             margin: 0;
+            font-family: sans-serif;
         }
 
         button {
             border: none;
             border-radius: 50%;
             background-color: #131e1e;
+        }
+
+        a,
+        a:visited {
+            color: #e96b6b;
+            text-decoration: none;
+            font-weight: bold;
+
+        }
+
+        a:active,
+        a:hover {
+            color: #f75353;
+        }
+
+        p {
+            font-size: 1.15em;
+            margin: 0;
+        }
+
+        small {
+            font-weight: lighter;
+            font-size: x-small;
         }
 
         .main {
@@ -117,24 +141,96 @@
             top: 2%;
             left: 2%;
         }
+
+        #ui-info-toggle {
+            position: absolute;
+            top: 2%;
+            right: 2%;
+        }
         
         @media screen and (min-width: 750px) {
             #ui-utility-toggle {
                 top: 2.5%;
                 left: 7%;
             }
+
+            #ui-info-toggle {
+                top: 2.5%;
+                right: 7%;
+            }
         }
 
-        #ui-utility-toggle > button {
+        #ui-utility-toggle > button,
+        #ui-info-toggle > button {
             width: 4rem;
             height: 4rem;
             padding: 3px;
             margin: 5px;
         }
 
-        #ui-utility-toggle > button > img.utility-btn {
+        #ui-utility-toggle > button > img.utility-btn,
+        #ui-info-toggle > button > img {
             width: 100%;
             height: 100%;
+        }
+
+        #info-popup {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(19, 30, 30, 0.85);
+            z-index: 200;
+        }
+
+        #info-popup > #info-msg-box {
+            height: 100vh;
+            width: 65vw;
+            left: 0;
+            position: absolute;
+            border-radius: 0 5px 5px 0;
+            background-color: #495e5e;
+            color: whitesmoke;
+            padding: 0 50px;
+            overflow-y: scroll;
+            transition: width 0.5s ease-out;
+        }
+
+        #info-popup > #info-msg-box > h1,
+        #info-popup > #info-msg-box > h2,
+        #info-popup > #info-msg-box > h3 {
+           margin: 0;
+        }
+
+        #info-popup > #info-msg-box > h1,
+        #info-popup > #info-msg-box > h2 {
+            text-align: center;
+        }
+
+        #info-popup > #info-msg-box > h1 {
+            font-variant: small-caps;
+            margin-top: 20px;
+        }
+
+        #info-popup > #info-msg-box > h2 {
+            margin-bottom: 20px;
+            font-weight: 100;
+            font-size: 1.25em;
+        }
+
+        #info-popup > #info-msg-box > p {
+            text-align: justify;
+            padding: 25px;
+            line-height: 1.25;
+        }
+
+        .closed,
+        .closed > * {
+            width: 0!important;
+            max-width: 0!important;
+            padding: 0!important;
+            margin: 0!important;
         }
     </style>
 </head>
@@ -152,9 +248,58 @@
                 <img class="utility-btn" src="./assets/icons/ico-download.png"/>
             </button>
         </div>
+        <div id="ui-info-toggle">
+            <button id="info-btn">
+                <img class="info-btn" src="./assets/icons/ico-info.png"/>
+            </button>
+        </div>
         <div id="ui-clothing-cat-select">
         </div>
         <div id="ui-clothing-select">
+        </div>
+    </div>
+    <div id="info-popup" class="closed">
+        <div id="info-msg-box">
+            <h1> Midnight Mass Dress-up </h1>
+            <h2>Dress up your local hot priest.</h2>
+            <p>
+                This is a small fanmade dressup game featuring our beloved Father Paul Hill.<br>
+                Get him ready to be dragged to a vampire-goth party on the mainland...<br>
+                <br>
+                I don't own the character featured here. They belong to Mike Flanagan and Netflix.<br>
+                <br>
+                The featured images are licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="blank">CC-BY-NC</a>
+                So you can distribute, remix, adapt, and build upon the material, while giving credit and not using it commercially.
+                Feel free to use the black and white versions as a coloringpage, do some photobashing with it or add your own stuff... <br>
+                <br>
+                Hope you'll have some fun!
+            </p>
+
+            <h3> How to play </h3>
+
+            <p>
+                Below the canvas select a clothing category.<br>
+                Beneath it there will appear some selectable clothing items. <br>
+                Now dress him up!<br>
+                <br>
+                <b>Toggle color and b/w versions:</b><br>
+                Click the brush icon to toggle between a b/w version or a coloured version of the images.<br>
+                <br>
+                <b>Undress:</b><br>
+                Click the two rotating arrows to undress him again.<br>
+                <br>
+                <b>Download:</b><br>
+                Click the download arrow to gat a snapshot of the current view.<br>
+            </p>
+            <h3>Credits</h3>
+            <p>
+                Art and Code by <a href="https://yngwer.carrd.co" target="blank">@yngwer</a><br>
+                <br>
+                The Images featured here is licenced under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="blank">CC-BY-NC</a><br>
+                <br>
+                The Code is available on my <a href="https://github.com/zi-mt/midnight-mass-dressup" target="blank">Github</a> and licensed under <a href="https://github.com/zi-mt/midnight-mass-dressup/blob/main/LICENSE" target="blank">GPL-3.0</a><br>
+                <small>(Though I don't know why anybody would look at it. It was written with my absolute last braincell, cause the otherones went you know where ...)</small>
+            </p>
         </div>
     </div>
 </body>
