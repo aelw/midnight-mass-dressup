@@ -8,15 +8,15 @@ Get him ready to be dragged to a vampire-goth party on the mainland...
   
 I don't own the character featured here. They belong to Mike Flanagan and Netflix.  
   
-The featured images are licensed under CC-BY-NC So you can distribute, remix, adapt, and build upon the material, while giving credit and not using it commercially. Feel free to use the black and white versions as a coloringpage, do some photobashing with it or add your own stuff...  
+The featured images are licensed under [CC-BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) So you can distribute, remix, adapt, and build upon the material, while giving credit and not using it commercially. Feel free to use the black and white versions as a coloringpage, do some photobashing with it or add your own stuff...  
   
-Hope you'll have some fun!  
+Hope you'll have some fun!   
   
 ### How to play
   
-Below the canvas select a clothing category.  
-Beneath it there will appear some selectable clothing items.  
+Below the canvas select a clothing category now pick a clothing item.  
 Now dress him up!  
+You can remove the clothingitem by clicking the trashcan on the left of the other clothingitems.   
   
 **Toggle color and b/w versions:**  
 Click the brush icon to toggle between a b/w version or a coloured version of the images.  
@@ -25,7 +25,7 @@ Click the brush icon to toggle between a b/w version or a coloured version of th
 Click the two rotating arrows to undress him again.  
   
 **Download:**  
-Click the download arrow to gat a snapshot of the current view.  
+Click the download arrow to get a snapshot of the current view.  
 
 ### Credits  
 
