@@ -4,10 +4,15 @@
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
     <script src="./script.js"></script>
     <style>
+        body {
+            background-color: #495e5e;
+            margin: 0;
+        }
+
         button {
             border: none;
             border-radius: 50%;
-            background-color: #fff;
+            background-color: #131e1e;
         }
 
         .main {
@@ -23,21 +28,34 @@
 
         .ui > div {
             position: relative;
-            top: -2.5rem;
+            top: -1.5rem;
             display: flex;
             align-items: center;
         }
+       
+        .btn-category-selection,
+        img.trash {
 
-        .btn-category-selection {
             min-width: 100px;
-            max-width: 5%;
-            padding: 10px;
+            max-width: 100px;
+            margin: 0 2px;
+            padding: 3px;
             border: 0;
             border-radius: 50%;
-            background-color: #fff;
+            background-color: #131e1e;
+        }
+        
+        @media screen and (min-width: 750px) {
+            .btn-category-selection,
+            img.trash {
+                max-width: 4.5%;
+                margin: 0 6px;
+                padding: 5px;
+            }
         }
 
-        .btn-category-selection:hover {
+        .btn-category-selection:hover,
+        img.trash:hover {
             background-color: #ab4343;
         }
 
@@ -49,17 +67,37 @@
             height: 10vh;
         }
 
-        img.trash {
-            width: 5rem;
-            height: 5rem;
-            padding: 10px;
-            margin: 0 6px;
-        }
-
         #ui-clothing-cat-select,
         #ui-clothing-select {
             height: 100%;
             overflow-x: scroll;
+            scrollbar-width:none; 
+            -ms-overflow-style:none; 
+            position:relative
+        }
+
+        #ui-clothing-cat-select::-webkit-scrollbar,
+        #ui-clothing-select::-webkit-scrollbar { 
+            display:none; 
+        }
+
+        #ui-clothing-cat-select::before,
+        #ui-clothing-cat-select::after {
+            content: '';
+            height: 500px;
+            min-width: 35px;
+            position: fixed;
+            z-index: 100;
+        }
+
+        #ui-clothing-cat-select::before {
+            left: 0;
+            background: linear-gradient(90deg, rgb(46, 69, 69) 0%, rgb(73, 94, 94) 10%, rgba(73, 94, 94, 0) 100%);
+        }
+
+        #ui-clothing-cat-select::after {
+            right: 0;
+            background: linear-gradient(90deg, rgba(73, 94, 94, 0) 0%, rgb(73, 94, 94) 90%, rgb(46, 69, 69) 100%);
         }
 
         #ui-clothing-cat-select > button:first-child,
@@ -76,8 +114,15 @@
             position: absolute;
             display: flex;
             flex-direction: column;
-            top: 2.5%;
-            left: 7%;
+            top: 2%;
+            left: 2%;
+        }
+        
+        @media screen and (min-width: 750px) {
+            #ui-utility-toggle {
+                top: 2.5%;
+                left: 7%;
+            }
         }
 
         #ui-utility-toggle > button {
@@ -95,7 +140,7 @@
 </head>
 <body>
     <div id="game" class="main" ></div>
-    <div class="ui">
+    <div id="ui-container" class="ui">
         <div id="ui-utility-toggle">
             <button onClick="switchColorMode()">
                 <img class="utility-btn" src="./assets/icons/ico-color.png"/>

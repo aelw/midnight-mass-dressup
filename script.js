@@ -4,12 +4,17 @@
  * cause the otherones went somewhere else ... 💫 🩸 🧛‍♀️ 🩸 💫
  */
 
+var clothingContainer;
+var char;
+let wideScreen = window.innerWidth > window.innerHeight;
+let characterHeight = 925;
+
 let config = {
     type: Phaser.AUTO,
 	parent: 'game',
-    width: window.innerWidth * 0.9,
+    width: wideScreen ? window.innerWidth > 700 ? 700 : window.innerWidth * 0.9 : window.innerWidth,
     height: window.innerHeight * 0.75,
-	backgroundColor: '#ffffff',
+	backgroundColor: '#495e5e',
     scene: {
         preload: preload,
         create: create,
@@ -67,11 +72,29 @@ let clothing = {
 	}, 
 };
 
-var clothingContainer;
-var char;
+(function(window, document, undefined){
+
+	window.onload = init;
+	
+	  function init(){
+		const catSelectContainer = document.getElementById('ui-clothing-cat-select');
+		const clothingSelectContainer = document.getElementById('ui-clothing-select');
+		catSelectContainer.addEventListener('wheel', (event) => {
+			event.preventDefault();
+			catSelectContainer.scrollLeft += event.deltaY;
+		});
+
+		clothingSelectContainer.addEventListener('wheel', (event) => {
+			event.preventDefault();
+			clothingSelectContainer.scrollLeft += event.deltaY;
+		});
+	  }
+	
+})(window, document, undefined);
+
 
 function preload () {
-	let clothingCatSelect = document.getElementById('ui-clothing-cat-select');
+	const clothingCatSelect = document.getElementById('ui-clothing-cat-select');
 	const clothingCategories = Object.keys(clothing);
 	clothingCategories.forEach( (itemName) => {
 		let btn = document.createElement('button');
@@ -95,9 +118,9 @@ function create () {
 	this.centerY=game.config.height/2;
 
 	char = this.add.image(this.centerX, this.centerY, `char-${colorMode}`);
-	char.setScale(0.75);
+	char.setScale(game.config.height / characterHeight);
 	clothingContainer = this.add.container(this.centerX, this.centerY);
-	clothingContainer.setScale(0.75);
+	clothingContainer.setScale(game.config.height / characterHeight);
 
 	Object.keys(clothing).forEach( (item) => {
 		let clothingItem = this.add.image(0,0, item);
@@ -229,7 +252,6 @@ function download () {
 				blob = bb.getBlob('application/octet-stream');
 			}
 			var url = (window.webkitURL || window.URL).createObjectURL(blob);
-			console.log(url);
 			const tmpLink = document.createElement( 'a' );  
 			tmpLink.download = `midnightmass-dressup-${Date.now()}.png`; 
 			tmpLink.href = url;  
