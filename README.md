@@ -14,7 +14,7 @@ Hope you'll have some fun!
   
 ### How to play
   
-Below the canvas select a clothing category now pick a clothing item.  
+Below the canvas select a clothing category, pick a clothing item.  
 Now dress him up!  
 You can remove the clothingitem by clicking the trashcan on the left of the other clothingitems.   
   
@@ -31,6 +31,6 @@ Click the download arrow to get a snapshot of the current view.
 
 Art and Code by [@yngwer](https://yngwer.carrd.co/)  
   
-The Images featured here is licenced under [CC-BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)  
+The Images featured here are licenced under [CC-BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)  
 
 The Code is licensed under [GPL-3.0](https://github.com/zi-mt/midnight-mass-dressup/blob/main/LICENSE)

@@ -68,7 +68,7 @@ let clothing = {
 	},
 	hats: {
 		equipped: null,
-		amount: 3,
+		amount: 5,
 	}, 
 };
 
